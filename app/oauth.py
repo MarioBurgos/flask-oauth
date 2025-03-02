@@ -14,5 +14,6 @@ def init_oauth(app):
         client_kwargs={"scope": "openid email profile"},
         api_base_url="https://www.googleapis.com/oauth2/v1/",
         userinfo_endpoint="https://openidconnect.googleapis.com/v1/userinfo",
-        jwks_uri="https://www.googleapis.com/oauth2/v3/certs"  # Add the jwks_uri
+        jwks_uri="https://www.googleapis.com/oauth2/v3/certs",  # Add the jwks_uri
+        scopes="openid email profile",
     )

@@ -1,15 +1,85 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="text-center mt-4">
-    <h1 class="text-4xl font-bold text-gray-800">Bienvenido, {{ user.name }}</h1>
-    <p class="text-lg text-gray-600 mt-2">Aquí está tu panel de control.</p>
+<section class="mt-20 px-6">
+    <!-- Encabezado -->
+    <div class="text-center">
+        <h1 class="text-4xl font-bold text-gray-800">Bienvenido, {{ user.name }}</h1>
+        <p class="text-lg text-gray-600 mt-2">Explora las herramientas disponibles</p>
 
-    <!-- Mostrar la foto de perfil -->
-    <img src="{{ user.picture }}" alt="Foto de perfil" class="w-24 h-24 mx-auto rounded-full mt-4">
+        <!-- Foto de perfil -->
+        <div class="mt-6">
+            <img src="{{ user.picture }}" alt="Foto de perfil" 
+                class="w-24 h-24 mx-auto rounded-full shadow-lg border-4 border-gray-300">
+        </div>
+    </div>
 
-    <a href="{{ url_for('routes.logout') }}" class="mt-4 inline-block bg-red-500 hover:bg-red-600 text-white py-2 px-6 rounded-full">
-        Cerrar sesión
-    </a>
+    <!-- Tarjetas de navegación -->
+    <div class="grid gap-6 mt-10 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Tarjeta 1 -->
+        <a href="{{ url_for('routes.profile') }}" class="block p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+            <div class="flex items-center space-x-4">
+                <div class="p-3 bg-blue-500 text-white rounded-full">
+                    📄
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-800">Perfil</h2>
+                    <p class="text-gray-600 text-sm">Administra tu información personal</p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Tarjeta 2 -->
+        <a href="/weather" class="block p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+            <div class="flex items-center space-x-4">
+                <div class="p-3 bg-yellow-500 text-white rounded-full">
+                    🌤️
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-800">Clima</h2>
+                    <p class="text-gray-600 text-sm">Consulta el clima actual</p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Tarjeta 3 -->
+        <a href="/analytics" class="block p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+            <div class="flex items-center space-x-4">
+                <div class="p-3 bg-green-500 text-white rounded-full">
+                    📊
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-800">Análisis</h2>
+                    <p class="text-gray-600 text-sm">Métricas y estadísticas</p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Tarjeta 4 -->
+        <a href="/settings" class="block p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+            <div class="flex items-center space-x-4">
+                <div class="p-3 bg-red-500 text-white rounded-full">
+                    ⚙️
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-800">Configuración</h2>
+                    <p class="text-gray-600 text-sm">Gestiona preferencias y seguridad</p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Tarjeta 5 -->
+        <a href="{{ url_for('routes.logout') }}" class="block p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:scale-105">
+            <div class="flex items-center space-x-4">
+                <div class="p-3 bg-gray-800 text-white rounded-full">
+                    🚪
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-800">Cerrar sesión</h2>
+                    <p class="text-gray-600 text-sm">Salir de tu cuenta</p>
+                </div>
+            </div>
+        </a>
+    </div>
 </section>
 {% endblock %}

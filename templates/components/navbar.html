@@ -3,7 +3,18 @@
         <div class="text-2xl font-semibold text-gray-800">
             <a href="/">OAuth App</a>
         </div>
-        <div class="space-x-6 text-lg">
+
+        <!-- Contenedor para el menú hamburguesa -->
+        <div class="block lg:hidden">
+            <button id="hamburger-btn" class="text-gray-800 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menú de navegación -->
+        <div class="hidden lg:flex space-x-6 text-lg" id="menu">
             {% if user %}
                 <a href="{{ url_for('routes.dashboard') }}" class="text-gray-800 hover:text-blue-600">Dashboard</a>
                 <a href="{{ url_for('routes.profile') }}" class="text-gray-800 hover:text-blue-600">Perfil</a>
@@ -18,5 +29,22 @@
                 </a>
             {% endif %}
         </div>
+    </div>
+
+    <!-- Menú móvil, inicialmente oculto -->
+    <div class="lg:hidden bg-white p-4 space-y-4 hidden text-center" id="mobile-menu">
+        {% if user %}
+            <a href="{{ url_for('routes.dashboard') }}" class="text-gray-800 hover:text-blue-600 block">Dashboard</a>
+            <a href="{{ url_for('routes.profile') }}" class="text-gray-800 hover:text-blue-600 block">Perfil</a>
+            <a href="{{ url_for('routes.logout') }}" class="btn bg-red-500 hover:bg-red-600 text-white py-2 px-6 rounded-full block">
+                Cerrar sesión
+            </a>
+        {% else %}
+            <a href="/about" class="text-gray-800 hover:text-blue-600 block">About</a>
+            <a href="/contact" class="text-gray-800 hover:text-blue-600 block">Contact</a>
+            <a href="{{ url_for('routes.login') }}" class="btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full block">
+                Iniciar sesión con Google
+            </a>
+        {% endif %}
     </div>
 </nav>
