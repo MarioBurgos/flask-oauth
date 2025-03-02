@@ -1,41 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OAuth App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 flex flex-col min-h-screen">
+{% extends "base.html" %}
 
-    {% include 'components/navbar.html' %}
-
-    <!-- Sección Home -->
-    <section id="home" class="h-screen w-screen flex flex-col justify-center items-center bg-blue-500 text-white">
-        <h1 class="text-5xl font-bold">Bienvenido a OAuth App</h1>
-        <p class="text-lg mt-4">Autenticación segura con Google</p>
-        {% if not user %}
-            <a href="{{ url_for('routes.login') }}" class="mt-6 bg-white text-blue-500 font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-200">
-                Iniciar sesión con Google
-            </a>
-        {% endif %}
-    </section>
-
-    <!-- Sección About -->
-    <section id="about" class="h-screen w-screen flex flex-col justify-center items-center bg-gray-100 text-gray-800">
-        <h2 class="text-4xl font-bold">Sobre la aplicación</h2>
-        <p class="text-lg mt-4 max-w-2xl text-center">
-            Esta app usa OAuth para autenticación con Google, permitiendo acceder de manera segura y rápida.
-        </p>
-    </section>
-
-    <!-- Sección Contact -->
-    <section id="contact" class="h-screen w-screen flex flex-col justify-center items-center bg-gray-900 text-white">
-        <h2 class="text-4xl font-bold">Contacto</h2>
-        <p class="text-lg mt-4">Puedes enviarnos un email a <span class="text-blue-400">contacto@oauthapp.com</span></p>
-    </section>
-
-    {% include 'components/footer.html' %}
-
-</body>
-</html>
+{% block content %}
+    {% if user %}
+        {% include "dashboard.html" %}
+    {% else %}
+        {% include "landing.html" %}
+    {% endif %}
+{% endblock %}

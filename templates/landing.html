@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="h-screen flex flex-col items-center justify-center text-center bg-gray-100">
+    <h1 class="text-5xl font-bold text-gray-800 mb-4">A FLASK Website</h1>
+    <h2>Google OAuth / API Endpoints / SQL & NoSQL Backend...</h2>
+    <p class="text-lg text-gray-600 mb-6"></p>
+    
+    <a href="{{ url_for('routes.login') }}" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-full text-lg shadow-lg transition">
+        Iniciar sesión con Google
+    </a>
+</section>
+
+<!-- About Section -->
+<section id="about" class="h-screen flex flex-col items-center justify-center text-center bg-white">
+    <h2 class="text-4xl font-bold text-gray-800 mb-4">Sobre Nosotros</h2>
+    <p class="text-lg text-gray-600 max-w-2xl">
+        OAuth App es una plataforma moderna que te permite autenticarte de manera segura utilizando Google OAuth.
+    </p>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="h-screen flex flex-col items-center justify-center text-center bg-gray-100">
+    <h2 class="text-4xl font-bold text-gray-800 mb-4">Contáctanos</h2>
+    <p class="text-lg text-gray-600 max-w-2xl">
+        ¿Tienes preguntas? Escríbenos a <strong>support@oauthapp.com</strong>.
+    </p>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="text-center">
+    <h1 class="text-4xl font-bold text-gray-800">Perfil de Usuario</h1>
+    <p class="text-lg text-gray-600 mt-2">Bienvenido, <strong>{{ user.name }}</strong></p>
+
+    <div class="mt-6 p-4 bg-white shadow-md rounded-lg max-w-md mx-auto">
+        <!-- Foto de perfil -->
+        <img src="{{ user.picture }}" alt="Foto de perfil" class="w-24 h-24 mx-auto rounded-full">
+        <p class="text-xl font-semibold mt-4">{{ user.name }}</p>
+        <p class="text-gray-600">{{ user.email }}</p>
+    </div>
+
+    <a href="{{ url_for('routes.logout') }}" class="mt-6 inline-block bg-red-500 hover:bg-red-600 text-white py-2 px-6 rounded-full">
+        Cerrar sesión
+    </a>
+</section>
+{% endblock %}
